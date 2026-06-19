@@ -1,0 +1,65 @@
+<doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Black & White Ebook Library</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot" aria-hidden="true"></span>
+      <div>
+        <h1>ebook library</h1>
+        <div class="subtitle">black &amp; white reading room</div>
+      </div>
+    </div>
+    <div class="actions">
+      <label class="upload" for="fileInput">Add PDF (local preview)</label>
+      <input id="fileInput" type="file" accept="application/pdf" hidden />
+    </div>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Available books</h2>
+        <div class="panel-meta">
+          <span id="count">0</span> items
+        </div>
+      </div>
+
+      <div id="grid" class="grid" aria-live="polite"></div>
+
+      <p id="empty" class="empty" style="display:none;">No PDFs found in <code>books/</code>.</p>
+    </section>
+
+    <aside class="panel">
+      <div class="panel-head">
+        <h2>Preview</h2>
+        <div class="panel-meta">PDF.js viewer</div>
+      </div>
+      <div class="preview" role="region" aria-label="PDF preview">
+        <div id="previewPlaceholder" class="placeholder">
+          Select a book to preview.
+        </div>
+        <div id="viewer" class="viewer" style="display:none;">
+          <div class="viewer-toolbar">
+            <button id="prevPage" class="btn" type="button">Prev</button>
+            <span class="page-indicator">
+              Page <span id="pageNum">1</span> / <span id="pageCount">1</span>
+            </span>
+            <button id="nextPage" class="btn" type="button">Next</button>
+            <a id="downloadLink" class="btn download" href="#" download>Download</a>
+          </div>
+          <iframe id="pdfFrame" title="PDF preview" src="about:blank"></iframe>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+
+  <!-- PDF rendering (no UI theme needed; we keep it black & white via CSS) -->
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.5.136/build/pdf.min.js"></script>
+  <script src="app.js"></script>
+</body>

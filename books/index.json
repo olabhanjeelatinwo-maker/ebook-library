@@ -1,0 +1,13 @@
+{
+  "files": [
+    {
+      "name": "book1.pdf",
+      "href": "/books/book1.pdf"
+    },
+    {
+      "name": "book2.pdf",
+      "href": "/books/book2.pdf"
+    }
+  ]
+}
+
